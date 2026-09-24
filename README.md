@@ -19,4 +19,5 @@ portfolio/
 ```
 
 ## Live site
-https://YOUR-USERNAME.github.io/portfolio/
+https://nidashah612.github.io/portfolio/
+
