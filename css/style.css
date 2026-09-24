@@ -1,0 +1,189 @@
+/* ==========================================================
+   Nida Shah - Personal Portfolio II  |  CS344 Lab 3
+   Single external stylesheet. Layout uses float + clear only.
+   ========================================================== */
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #121212;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+h1, h2, h3 { margin: 0 0 10px 0; }
+a { color: #ec1561; }
+img { max-width: 100%; }
+
+/* Reusable clearfix: fixes the collapsed-parent problem caused by floats */
+.clearfix::after { content: ""; display: block; clear: both; }
+.clear { clear: both; }
+
+/* ---------- Navigation (horizontal via float) ---------- */
+.site-nav {
+  background: #121212;
+  border-bottom: 1px solid #232323;
+  padding: 18px 60px;
+}
+.site-nav .logo {
+  float: left;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ec1561;
+  line-height: 40px;
+}
+.site-nav ul {
+  float: left;
+  list-style: none;
+  margin: 0 0 0 60px;
+  padding: 0;
+}
+.site-nav li { float: left; }
+.site-nav li a {
+  display: block;
+  padding: 0 16px;
+  line-height: 40px;
+  color: #e6e6e6;
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 2px solid transparent;
+}
+.site-nav li a:hover,
+.site-nav li a.active { color: #ec1561; border-bottom-color: #ec1561; }
+.site-nav .nav-btn {
+  float: right;
+  background: #ec1561;
+  color: #fff;
+  padding: 0 22px;
+  line-height: 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ---------- Page wrappers ---------- */
+.wrapper { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+.page-head { text-align: center; padding: 55px 0 25px; }
+.eyebrow { color: #ec1561; font-size: 14px; letter-spacing: 1px; margin-bottom: 8px; }
+.page-head h1 { font-size: 38px; }
+
+/* ---------- Home: hero (text floats left, photo floats right) ---------- */
+.hero { padding: 60px 0 40px; }
+.hero-text { float: left; width: 58%; }
+.hero-photo { float: right; width: 34%; }
+.hero-photo img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  border: 4px solid #ec1561;
+}
+.hello { color: #ec1561; letter-spacing: 1px; font-size: 14px; }
+.hero-text h1 { font-size: 48px; margin-bottom: 4px; }
+.hero-text h2 { font-size: 26px; color: #ec1561; margin-bottom: 20px; }
+.hero-text p { color: #b3b3b3; line-height: 1.7; }
+
+.buttons { margin-top: 26px; }
+.btn-solid, .btn-outline {
+  float: left;
+  margin: 0 14px 10px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-solid { background: #ec1561; color: #fff; padding: 12px 24px; }
+.btn-outline { border: 2px solid #ec1561; color: #ec1561; padding: 10px 22px; }
+
+.socials { margin-top: 10px; }
+.socials a {
+  float: left;
+  margin: 0 12px 10px 0;
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.socials a:hover { color: #ec1561; border-color: #ec1561; }
+
+/* ---------- Cards (shared by hobbies / skills / contact) ---------- */
+.card {
+  background: #1c1c1c;
+  border: 1px solid #262626;
+  border-radius: 10px;
+  padding: 26px;
+}
+.card h3 { color: #ec1561; font-size: 18px; }
+.card p { color: #b3b3b3; margin: 0; }
+
+/* ---------- Hobbies: two floated columns ---------- */
+.hobby-card { float: left; width: 48.5%; margin: 0 3% 22px 0; }
+.hobby-card:nth-child(2n) { margin-right: 0; }
+.hobby-card:nth-child(2n+1) { clear: left; }
+
+/* ---------- Skills ---------- */
+.skill-box { margin-bottom: 20px; }
+.skill-box h3 { color: #f0f0f0; font-size: 17px; }
+.tag {
+  display: inline-block;
+  background: #2a2a2a;
+  color: #ec1561;
+  border: 1px solid #ec1561;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin: 5px 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- Contact: photo floats left, text wraps beside it ---------- */
+.contact-card { max-width: 640px; margin: 0 auto; }
+.contact-card img {
+  float: left;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 26px 10px 0;
+  border: 3px solid #ec1561;
+}
+.contact-card p { font-size: 16px; margin: 0 0 12px 0; color: #d0d0d0; }
+.contact-card strong { color: #ec1561; }
+.contact-note { clear: both; padding-top: 14px; border-top: 1px solid #2a2a2a; }
+
+/* ---------- Gallery: floated, 3 per row, clear starts each new row ---------- */
+.gallery-item { float: left; width: 32%; margin: 0 2% 26px 0; }
+.gallery-item:nth-child(3n) { margin-right: 0; }
+.gallery-item:nth-child(3n+1) { clear: left; }
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+}
+.gallery-item img:hover { border-color: #ec1561; }
+.caption { margin-top: 10px; font-size: 14px; color: #b3b3b3; }
+.caption strong { display: block; color: #f0f0f0; font-size: 15px; margin-bottom: 3px; }
+
+/* ---------- Footer (clear:both keeps it below every float) ---------- */
+.site-footer {
+  clear: both;
+  text-align: center;
+  padding: 24px;
+  color: #777;
+  border-top: 1px solid #232323;
+  margin-top: 40px;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 720px) {
+  .site-nav { padding: 14px 20px; }
+  .site-nav ul { margin-left: 10px; }
+  .hero-text, .hero-photo { float: none; width: 100%; }
+  .hero-photo { max-width: 260px; margin: 30px auto 0; }
+  .hobby-card, .gallery-item { float: none; width: 100%; margin-right: 0; }
+}
